@@ -15,7 +15,7 @@ class Shooter extends Entity {
 	public var collision:CollisionBox;
 
 	var layer:Layer;
-	var speed:Float = 100;
+	var speed:Float = 200;
 	var facingDir:FastVector2 = new FastVector2();
 	var width:Float = 20;
 	var height:Float = 20;
@@ -41,13 +41,15 @@ class Shooter extends Entity {
 		collision.dragX = 0.9;
 		collision.dragY = 0.9;
 
+		collision.userData = this;
+
 		bulletCollision = new CollisionGroup();
 	}
 
 	override function update(dt:Float) {
 		super.update(dt);
 		moveShooter();
-		if (Input.i.isKeyCodePressed(KeyCode.Space)) {
+		if (Input.i.isKeyCodePressed(KeyCode.X)) {
 			var bullet:Bullet = new Bullet(collision.x + width * 0.5, collision.y + height * 0.5, facingDir, layer, bulletCollision);
 			addChild(bullet);
 		}
