@@ -21,6 +21,7 @@ import com.loading.Resources;
 import kha.input.Mouse;
 import com.gEngine.GEngine;
 import states.EndGame;
+import kha.Canvas;
 
 class GameSetup extends State {
 	var simulationLayer:Layer;
@@ -61,8 +62,8 @@ class GameSetup extends State {
 		MainLayer.simulationLayer = simulationLayer;
 		Mouse.get().notify(onMouseDown, null, null, null);
 
-		button = new Button(10, 10, simulationLayer);
-		shooter = new Shooter(100, 100, simulationLayer);
+		button = new Button(30, 30, simulationLayer);
+		shooter = new Shooter(this.screenWidth / 2, 100, simulationLayer);
 		ball = new Ball(300, 300, simulationLayer, ballCollisionGroup);
 
 		addChild(shooter);
@@ -85,13 +86,16 @@ class GameSetup extends State {
 		var bullet:Bullet = cast bullet.userData;
 		var ballDead:Ball = cast ballTarget.userData;
 		this.score++;
-		if (this.score == 2) {
+		if (this.score == 10) {
 			changeState(new EndGame(true));
 		} else {
 			if (ballDead.life < 2) {
 				ballDead.die();
 				this.ballsKilled++;
-				if (this.ballsKilled % 2 != 0) {
+				if (this.ballsKilled > 1 && this.ballsKilled < 3) {
+					createBall();
+					createBall();
+				} else {
 					createBall();
 				}
 			} else {
@@ -109,7 +113,7 @@ class GameSetup extends State {
 
 	function createBall() {
 		var width:Int = Std.random(this.screenWidth);
-		var height:Int = Std.random(this.screenHeight);
+		var height:Int = Std.random(Math.round(this.screenHeight / 2));
 		ball = new Ball(width, height, simulationLayer, ballCollisionGroup);
 		addChild(ball);
 	}

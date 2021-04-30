@@ -10,13 +10,14 @@ import com.collision.platformer.CollisionBox;
 class Bullet extends Entity {
 	var display:RectangleDisplay;
 	var collision:CollisionBox;
-	var speed:Float = 500;
-	var width:Float = 10;
-	var height:Float = 10;
+	var speed:Float = 600;
+	var width:Float = 20;
+	var height:Float = 20;
 	var time:Float = 0;
 
 	public function new(x:Float, y:Float, dir:FastVector2, layer:Layer, collisionGroup:CollisionGroup) {
 		super();
+
 		display = new RectangleDisplay();
 		display.setColor(0, 0, 255);
 		display.scaleX = width;

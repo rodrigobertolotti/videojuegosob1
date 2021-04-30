@@ -22,7 +22,7 @@ class HowTo extends State {
 
 	override function load(resources:Resources) {
 		var atlas = new JoinAtlas(512, 512);
-		atlas.add(new FontLoader("InterstateMono", 24));
+		atlas.add(new FontLoader("InterstateMono", 20));
 		resources.add(atlas);
 	}
 
@@ -32,14 +32,14 @@ class HowTo extends State {
 		var textStart = new Text("InterstateMono");
 		this.stageColor(0, 0, 0);
 		title.text = "Bienvenido al obligatorio 1 de Rodrigo Bertolotti.";
-		text.text = "Flechas para moverse, X para disparar. Ganas si llegas a 10 puntos y pierdes si te toca un invasor.";
-		textStart.text = "Presiona ESPACIO para comenzar.";
+		text.text = "Reglas: Flechas para moverse, X para disparar. Ganas si llegas a 10 puntos y pierdes si te toca un invasor.";
+		textStart.text = "Los invasores se generan de a uno, si quieres crear mas invasores haz click en el circulo blanco. Presiona ESPACIO para comenzar.";
 		text.color = Color.White;
 		title.x = Screen.getWidth() * 0.3;
 		title.y = Screen.getHeight() * 0.3;
-		text.x = Screen.getWidth() * 0.05;
+		text.x = Screen.getWidth() * 0.1;
 		text.y = Screen.getHeight() * 0.5;
-		textStart.x = Screen.getWidth() * 0.4;
+		textStart.x = Screen.getWidth() * 0.02;
 		textStart.y = Screen.getHeight() * 0.7;
 		stage.addChild(title);
 		stage.addChild(text);

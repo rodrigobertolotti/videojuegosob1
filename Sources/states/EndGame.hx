@@ -51,7 +51,7 @@ class EndGame extends State {
 		text.color = Color.White;
 		image.x = Screen.getWidth() * 0.5 - 150;
 		image.y = Screen.getHeight() * 0.2;
-		text.x = Screen.getWidth() * 0.5 - 200;
+		text.x = Screen.getWidth() * 0.5 - 300;
 		text.y = Screen.getHeight() * 0.8;
 		stage.addChild(image);
 		stage.addChild(text);
